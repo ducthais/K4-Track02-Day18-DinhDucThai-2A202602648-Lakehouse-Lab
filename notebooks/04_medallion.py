@@ -155,3 +155,19 @@ assert n_dates >= 7, (
 # - [ ] Silver has fewer rows than Bronze (dedup worked)
 # - [ ] Gold spans ≥ 7 dates × 3 models (slide §8 medallion contract)
 # - [ ] Cost & error_rate columns populated and non-zero
+# - [ ] p50 <= p95 latency for all rows
+
+# %%
+checks = {
+    "bronze, silver, gold all exist": all(Path(p).exists() for p in [BRONZE, SILVER, GOLD]),
+    "silver dedup dropped rows": silver_n < bronze_n,
+    "gold covers ≥ 7 dates x 3 models": n_dates >= 7 and n_models == 3,
+    "p50 <= p95 latency for all rows": bool((gold_df["p50_latency_ms"] <= gold_df["p95_latency_ms"]).all()),
+    "cost_usd > 0 for all rows": bool((gold_df["cost_usd"] > 0).all()),
+    "error_rate between 0 and 1": bool(((gold_df["error_rate"] >= 0) & (gold_df["error_rate"] <= 1)).all()),
+}
+for k, v in checks.items():
+    print(f"  [{'PASS' if v else 'FAIL'}] {k}")
+assert all(checks.values()), "NB4 incomplete — see FAIL rows above"
+print("\nNB4 complete.")
+
