@@ -5,7 +5,7 @@
 - **Mã bài lab:** `K4-Track02-Day18`
 - **Tên repository:** `K4-Track02-Day18-DinhDucThai-2A202602648-Lakehouse-Lab`
 - **GitHub URL:** https://github.com/ducthais/K4-Track02-Day18-DinhDucThai-2A202602648-Lakehouse-Lab
-- **Commit SHA bản nộp:** `9c0de086210f1849fd95114e56b9b8a6e0920f7b`
+- **Commit SHA bản nộp:** `30377245df954653c0a3b62215ace7651c66bc88` (hoặc commit SHA mới nhất trên nhánh main)
 - **Tiêu đề PR (Pull Request):** `[K4-Track02-Day18] DinhDucThai - 2A202602648 - Lakehouse Lab [+bonus]`
 - **Đường thực thi (Execution Path):** Lightweight path (Python native APIs: `deltalake` 1.x, `pyiceberg` 0.9.x, `duckdb` 1.2.x, `polars` 1.13.x; không dùng JVM / Docker)
 - **Phiên bản Python:** Python 3.11.9 (win32, x64)
